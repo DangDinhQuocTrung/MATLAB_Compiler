@@ -1,0 +1,1 @@
+% My matrix multiplication functionfunction c = myMatrixMul(a, b)	[m, n] = size(a);	[p, q] = size(b);	c = zeros(m, q);	if n == p	   for i = 1:m		   for j = 1:q			   for k = 1:n				   c(i, j) = c(i, j) + a(i, k)*b(k, j);			   end		   end	   end	end

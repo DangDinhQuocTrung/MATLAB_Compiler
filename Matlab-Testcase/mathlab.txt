@@ -1,0 +1,8 @@
+chap1, chap2
+1) expr command
+2) built-in functions/command
+3) matrix op
+
+chap5
+4) programming if-else, for, while
+5) function prototype, method
