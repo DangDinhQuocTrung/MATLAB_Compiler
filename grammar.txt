@@ -1,0 +1,47 @@
+sm_full			::=		sm delim sm_tail
+delim			::=		spaces | ";"
+
+
+sm				::=		command
+command			::=		command_keyword command_args
+command_keyword	::=		..
+command_args	::=		( arguments ) |
+						arguments | ALL
+arguments		::=		argument arg_tail
+arg_tail		::=		, arguments | NULL
+
+
+sm				::=		expr
+expr			::=		expr OP expr | MINUS expr |
+						VAR | NUMBER | function | matrix
+
+						
+function		::=		function_name ( arguments )
+
+
+matrix			::=		[ rows ]
+rows			::=		row row_tail
+row_tail		::=		";" rows | NULL
+row				::=		columns
+columns			::=		column column_tail
+column_tail		::=		matrix_delim columns | NULL
+column			::=		expr
+matrix_delim	::=		spaces | ","
+
+
+sm				::=		if_sm
+if_sm			::=		IF ( expr ) sm_full END |
+						IF ( expr ) sm_full ELSE sm_full END
+
+sm				::=		for_sm
+for_sm			::=		FOR VAR = range sm_full END
+range			::=		expr ":" expr |
+						expr ":" expr ":" expr
+
+sm				::=		while_sm
+while_sm		::=		WHILE ( expr ) sm_full END
+
+
+sm				::=		function_def_sm
+function_def_sm	::=		FUNCTION results = ID ( arguments ) sm_full
+
