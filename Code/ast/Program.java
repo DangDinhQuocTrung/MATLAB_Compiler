@@ -4,7 +4,7 @@ import java.util.*;
 import ast.sm.*;
 
 public class Program {
-	private LinkedList<Statement> list;
+	private LinkedList<Statement> list = new LinkedList<>();
 	
 	public Program(LinkedList<Statement> list) {
 		this.list = list;

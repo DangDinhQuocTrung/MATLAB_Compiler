@@ -1,3 +1,6 @@
+//	log, sin, exp, sum
+//	input|disp|clear|whos|who|clc|exit
+
 sm_full			::=		sm delim sm_tail
 delim			::=		spaces | ";"
 

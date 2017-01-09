@@ -13,11 +13,11 @@ import java.lang.Math;
 %%
 
 
-"log|exp|sin|sum" {
-	return new Symbol(sym.FUNCTION);
+(log|exp|sin|sum) {
+	return new Symbol(sym.FUNCTION, yytext());
 }
 
-"input|disp|clear|whos|who|clc|exit" {
+(input|disp|clear|whos|who|clc|exit) {
 	return new Symbol(sym.COMMAND);
 }
 
