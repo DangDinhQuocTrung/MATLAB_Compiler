@@ -1,5 +1,5 @@
 import java_cup.runtime.*;
-import Jama.*
+
 %%
 
 %class Lexer
@@ -26,6 +26,14 @@ import Jama.*
 "sin"		{ return new Symbol(sym.SIN); }
 
 
+"if"		{ return new Symbol(sym.IF); }
+"else"		{ return new Symbol(sym.ELSE); }
+"for"		{ return new Symbol(sym.FOR); }
+"while"		{ return new Symbol(sym.WHILE); }
+"end"		{ return new Symbol(sym.END); }
+"all"		{ return new Symbol(sym.ALL); }
+
+
 [0-9]+("."[0-9]+)?			{ return new Symbol(sym.NUMBER, new Double(yytext())); }
 [A-Za-z_$][A-Za-z_$0-9]*    { return new Symbol(sym.IDENTIFIER, yytext()); }
 ’[^’\r\f\n]*’ { 
@@ -39,11 +47,19 @@ import Jama.*
 "+"			{ return new Symbol(sym.PLUS); }
 "-"			{ return new Symbol(sym.MINUS); }
 "*"			{ return new Symbol(sym.MULTIPLY); }
-".*"		{ return new Symbol(sym.MATRIX_MULTIPLY}
+".*"		{ return new Symbol(sym.MATRIX_MULTIPLY); }
 "/"			{ return new Symbol(sym.DIVIDE); }
 "("			{ return new Symbol(sym.LPAREN); }
 ")"			{ return new Symbol(sym.RPAREN); }
 "="			{ return new Symbol(sym.ASSIGN); }
+
+"=="		{ return new Symbol(sym.EQUAL); }
+">"			{ return new Symbol(sym.GREATER); }
+"<"			{ return new Symbol(sym.SMALLER); }
+">="		{ return new Symbol(sym.G_EQUAL); }
+"<="		{ return new Symbol(sym.S_EQUAL); }
+"~="		{ return new Symbol(sym.NOT_EQUAL); }
+
 ","			{ return new Symbol(sym.COMMA); }
 ";"			{ return new Symbol(sym.SEMICOLON); }
 ":"			{ return new Symbol(sym.COLON); }
@@ -52,8 +68,8 @@ import Jama.*
 
 
 \.\.\.[^\n\r\f]*[\n\r\f]		{  }
-[\n\r\f]+						{ return new Symbol(sym.NEWLINE); }
+[\n\r\f]+						{  }
 [ \t]+							{  }
 /* comment */
-\%[^\n\r\f]*([\n\r\f])?	      	{ return new Symbol(sym.NEWLINE);   }
+\%[^\n\r\f]*([\n\r\f])?	      	{  }
 
