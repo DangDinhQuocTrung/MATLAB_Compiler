@@ -99,7 +99,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
          for (int j = 0; j < n; j++) {
             A[i][j] = s;
          }
-      }
+      } 
    }
 
    /** Construct a matrix from a 2-D array.
@@ -159,6 +159,14 @@ public class Matrix implements Cloneable, java.io.Serializable {
 	   this.n = 1;
 	   A = new double[m][n];
 	   A[0][0] = s;
+   }
+   
+   public boolean sameDimension(Matrix B) {
+	   return m == B.getRowDimension() && n == B.getColumnDimension();
+   }
+   
+   public boolean isNumber() {
+	   return m == 1 && n == 1;
    }
    
    public String toString() {

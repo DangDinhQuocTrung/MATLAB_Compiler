@@ -2,6 +2,7 @@ package ast.sm;
 
 import java.util.*;
 import ast.expr.*;
+import ast.Jama.Matrix;
 
 public class ExpressionStatement implements Statement {
 	private Expression expr;
@@ -11,6 +12,6 @@ public class ExpressionStatement implements Statement {
 	}
 	
 	public void run() {
-		
+		System.out.println(expr.value());
 	}
 }

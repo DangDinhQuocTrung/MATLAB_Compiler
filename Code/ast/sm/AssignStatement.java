@@ -2,6 +2,8 @@ package ast.sm;
 
 import java.util.*;
 import ast.expr.*;
+import ast.DataTable;
+import ast.Jama.Matrix;
 
 public class AssignStatement implements Statement {
 	private String id;
@@ -13,6 +15,6 @@ public class AssignStatement implements Statement {
 	}
 	
 	public void run() {
-		
+		DataTable.put(id, expr.value());
 	}
 }

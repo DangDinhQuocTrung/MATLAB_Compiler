@@ -1,6 +1,7 @@
 package ast.expr;
 
 import java.util.*;
+import ast.Jama.Matrix;
 
 public class SmallerEqualExpression implements Expression {
 	private Expression expr1, expr2;
@@ -10,7 +11,13 @@ public class SmallerEqualExpression implements Expression {
 		this.expr2 = expr2;
 	}
 	
-	public Double eval() {
-		return 0.0;
+	public Matrix value() {
+		Matrix m1 = expr1.value().copy(), m2 = expr2.value().copy();
+		if (m1.isNumber() && m2.isNumber()) {
+			double result = (m1.get(0, 0) <= m2.get(0, 0)) ? 1.0 : 0.0;
+			return new Matrix(result);
+		}
+		System.out.println("Comparison is illegal");
+		return new Matrix(0.0);
 	}
 }

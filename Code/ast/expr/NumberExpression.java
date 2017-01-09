@@ -1,6 +1,7 @@
 package ast.expr;
 
 import java.util.*;
+import ast.Jama.Matrix;
 
 public class NumberExpression implements Expression {
 	private double number;
@@ -9,7 +10,7 @@ public class NumberExpression implements Expression {
 		this.number = number;
 	}
 	
-	public Double eval() {
-		return 0.0;
+	public Matrix value() {
+		return new Matrix(number);
 	}
 }

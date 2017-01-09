@@ -1,6 +1,7 @@
 package ast.expr;
 
 import java.util.*;
+import ast.Jama.Matrix;
 
 public class ComplementExpression implements Expression {
 	private Expression expr;
@@ -9,7 +10,7 @@ public class ComplementExpression implements Expression {
 		this.expr = expr;
 	}
 	
-	public Double eval() {
-		return 0.0;
+	public Matrix value() {
+		return expr.value().copy().uminus();
 	}
 }

@@ -1,4 +1,5 @@
 import java_cup.runtime.*;
+import java.lang.Math;
 
 %%
 
@@ -11,20 +12,14 @@ import java_cup.runtime.*;
 
 %%
 
-"log"		{ return new Symbol(sym.LOG); }
-"exp"		{ return new Symbol(sym.EXP); }
-"pi"		{ return new Symbol(sym.PI); }
-"input"		{ return new Symbol(sym.INPUT); }
-"disp"		{ return new Symbol(sym.DISP); }
-"clear"		{ return new Symbol(sym.CLEAR); }
-"whos"		{ return new Symbol(sym.WHOS); }
-"who"		{ return new Symbol(sym.WHO); }
-"clc"		{ return new Symbol(sym.CLC); }
-"exit"		{ return new Symbol(sym.EXIT); }
-"all"		{ return new Symbol(sym.ALL); }
-"sum"		{ return new Symbol(sym.SUM); }
-"sin"		{ return new Symbol(sym.SIN); }
 
+"log|exp|sin|sum" {
+	return new Symbol(sym.FUNCTION);
+}
+
+"input|disp|clear|whos|who|clc|exit" {
+	return new Symbol(sym.COMMAND);
+}
 
 "if"		{ return new Symbol(sym.IF); }
 "else"		{ return new Symbol(sym.ELSE); }
@@ -32,6 +27,7 @@ import java_cup.runtime.*;
 "while"		{ return new Symbol(sym.WHILE); }
 "end"		{ return new Symbol(sym.END); }
 "all"		{ return new Symbol(sym.ALL); }
+"pi"		{ return new Symbol(sym.NUMBER, Math.PI); }
 
 
 [0-9]+("."[0-9]+)?			{ return new Symbol(sym.NUMBER, new Double(yytext())); }
@@ -54,10 +50,10 @@ import java_cup.runtime.*;
 "="			{ return new Symbol(sym.ASSIGN); }
 
 "=="		{ return new Symbol(sym.EQUAL); }
-">"			{ return new Symbol(sym.GREATER); }
-"<"			{ return new Symbol(sym.SMALLER); }
 ">="		{ return new Symbol(sym.G_EQUAL); }
+">"			{ return new Symbol(sym.GREATER); }
 "<="		{ return new Symbol(sym.S_EQUAL); }
+"<"			{ return new Symbol(sym.SMALLER); }
 "~="		{ return new Symbol(sym.NOT_EQUAL); }
 
 ","			{ return new Symbol(sym.COMMA); }

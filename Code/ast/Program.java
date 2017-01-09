@@ -10,7 +10,9 @@ public class Program {
 		this.list = list;
 	}
 	
-	public Double eval() {
-		return 0.0;
+	public void run() {
+		for (Statement s : list) {
+			s.run();
+		}
 	}
 }
