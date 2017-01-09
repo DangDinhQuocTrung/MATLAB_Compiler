@@ -3,6 +3,7 @@ import java.io.*;
 import java.io.FileReader;
 import java.io.File;
 import ast.*;
+import ast.Jama.Matrix;
 
 class Main {
 	public static void main(String[] argv) throws Exception {
@@ -15,5 +16,9 @@ class Main {
 		Double v = root.eval();
 		System.out.println("Value: " + v);
 		System.out.println("");
+		
+		double[][] array = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};;
+		Matrix A = new Matrix(array);
+		System.out.println(A);
 	}
 }
