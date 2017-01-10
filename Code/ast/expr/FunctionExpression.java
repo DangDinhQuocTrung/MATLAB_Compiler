@@ -17,10 +17,6 @@ public class FunctionExpression implements Expression {
 	}
 	
 	public Matrix value() {
-		for (Expression e : argList) {
-			System.out.print(e.value() + " ");
-		}
-		System.out.println("");
 		return new Matrix(0.0);
 	}
 }

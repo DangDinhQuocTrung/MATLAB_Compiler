@@ -6,40 +6,46 @@
 /** CUP generated interface containing symbol constants. */
 public interface sym {
   /* terminals */
-  public static final int MULTIPLY = 11;
-  public static final int ELSE = 23;
-  public static final int SEMICOLON = 17;
-  public static final int PLUS = 9;
-  public static final int RPAREN = 16;
+  public static final int DIVIDE = 13;
+  public static final int FUNCTION = 30;
+  public static final int POWER = 39;
+  public static final int UMINUS = 14;
+  public static final int INPUT = 32;
+  public static final int NOT_EQUAL = 7;
   public static final int SMALLER = 4;
+  public static final int LPAREN = 15;
+  public static final int GREATER = 3;
+  public static final int FOR = 24;
+  public static final int MINUS = 10;
+  public static final int RPAREN = 16;
+  public static final int SEMICOLON = 17;
+  public static final int COMMA = 18;
+  public static final int EXIT = 38;
+  public static final int PLUS = 9;
+  public static final int MULTIPLY = 11;
+  public static final int ASSIGN = 8;
+  public static final int IF = 22;
+  public static final int EOF = 0;
   public static final int EQUAL = 2;
+  public static final int error = 1;
+  public static final int DISP = 33;
+  public static final int NUMBER = 28;
+  public static final int WHO = 36;
+  public static final int MATRIX_MULTIPLY = 12;
+  public static final int COLON = 19;
+  public static final int G_EQUAL = 5;
+  public static final int ELSE = 23;
+  public static final int WHOS = 35;
+  public static final int CLC = 37;
+  public static final int LSQUARE = 20;
+  public static final int S_EQUAL = 6;
+  public static final int RSQUARE = 21;
   public static final int WHILE = 25;
+  public static final int CLEAR = 34;
+  public static final int END = 26;
+  public static final int STRING = 31;
   public static final int ALL = 27;
   public static final int IDENTIFIER = 29;
-  public static final int END = 26;
-  public static final int NOT_EQUAL = 7;
-  public static final int GREATER = 3;
-  public static final int FUNCTION = 30;
-  public static final int IF = 22;
-  public static final int COLON = 19;
-  public static final int LPAREN = 15;
-  public static final int S_EQUAL = 6;
-  public static final int STRING = 33;
-  public static final int COMMA = 18;
-  public static final int NUMBER = 28;
-  public static final int EOF = 0;
-  public static final int DIVIDE = 13;
-  public static final int G_EQUAL = 5;
-  public static final int LSQUARE = 20;
-  public static final int MINUS = 10;
-  public static final int error = 1;
-  public static final int ASSIGN = 8;
-  public static final int COMMAND = 31;
-  public static final int RSQUARE = 21;
-  public static final int MATRIX_MULTIPLY = 12;
-  public static final int FOR = 24;
-  public static final int POWER = 32;
-  public static final int UMINUS = 14;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -72,9 +78,15 @@ public interface sym {
   "NUMBER",
   "IDENTIFIER",
   "FUNCTION",
-  "COMMAND",
-  "POWER",
-  "STRING"
+  "STRING",
+  "INPUT",
+  "DISP",
+  "CLEAR",
+  "WHOS",
+  "WHO",
+  "CLC",
+  "EXIT",
+  "POWER"
   };
 }
 

@@ -17,9 +17,14 @@ import java.lang.Math;
 	return new Symbol(sym.FUNCTION, yytext());
 }
 
-(input|disp|clear|whos|who|clc|exit) {
-	return new Symbol(sym.COMMAND);
-}
+"input"		{ return new Symbol(sym.INPUT); }
+"disp"		{ return new Symbol(sym.DISP); }
+"clear"		{ return new Symbol(sym.CLEAR); }
+"whos"		{ return new Symbol(sym.WHOS); }
+"who"		{ return new Symbol(sym.WHO); }
+"clc"		{ return new Symbol(sym.CLC); }
+"exit"		{ return new Symbol(sym.EXIT); }
+
 
 "if"		{ return new Symbol(sym.IF); }
 "else"		{ return new Symbol(sym.ELSE); }
@@ -32,7 +37,7 @@ import java.lang.Math;
 
 [0-9]+("."[0-9]+)?			{ return new Symbol(sym.NUMBER, new Double(yytext())); }
 [A-Za-z_$][A-Za-z_$0-9]*    { return new Symbol(sym.IDENTIFIER, yytext()); }
-’[^’\r\f\n]*’ { 
+'[^'\n\t\r]*' { 
 	String string = yytext().substring(1, yytext().length() - 1);
 	System.out.println(string);
 	return new Symbol(sym.STRING, string);
